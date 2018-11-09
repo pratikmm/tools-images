@@ -33,7 +33,7 @@ RUN pip install jupyterlab numpy
 # Set to use python 3 as the default
 #RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1 && update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 
-RUN conda install nb_conda
+#RUN conda install nb_conda
 
 WORKDIR /app
 COPY entrypoint.sh .
