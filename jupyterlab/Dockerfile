@@ -1,4 +1,4 @@
-FROM shrutinaik22/pythonbase:v1
+FROM dockerpratik/python-base:v2
 # R Repo
 RUN  echo 'deb http://cran.rstudio.com/bin/linux/ubuntu xenial/' > /etc/apt/sources.list.d/rstudio.list
 RUN  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
