@@ -1,4 +1,8 @@
 FROM dockerpratik/python-base:v2
+
+RUN echo $PATH
+RUN /usr/bin/python --version
+
 # R Repo
 RUN  echo 'deb http://cran.rstudio.com/bin/linux/ubuntu xenial/' > /etc/apt/sources.list.d/rstudio.list
 RUN  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
@@ -18,12 +22,18 @@ RUN apt-get update && apt-get install -y \
 #      && \
 #    apt-get clean
 
+
 #python 
 #RUN pip3 install jupyterlab numpy matplotlib pandas
-RUN pip3 install jupyterlab numpy
+#RUN conda install pip
+RUN pip install jupyterlab numpy
+
+#RUN conda install -c conda-forge jupyterlab
 
 # Set to use python 3 as the default
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1 && update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+#RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1 && update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+
+RUN conda install nb_conda
 
 WORKDIR /app
 COPY entrypoint.sh .
