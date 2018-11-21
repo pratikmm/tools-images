@@ -56,7 +56,7 @@ RUN apt-get update \
   ## Prevent rstudio from deciding to use /usr/bin/R if a user apt-get installs a package
   &&  echo 'rsession-which-r=/usr/bin/R' >> /etc/rstudio/rserver.conf \
   ## use more robust file locking to avoid errors when using shared volumes:
-  && echo 'lock-type=advisory' >> /etc/rstudio/file-locks \
+#  && echo 'lock-type=advisory' >> /etc/rstudio/file-locks \
   ## configure git not to request password each time
   && git config --system credential.helper 'cache --timeout=3600' \
   && git config --system push.default simple \
@@ -122,4 +122,4 @@ COPY README.txt /home/rstudio/README.txt
 
 ENTRYPOINT ["sh", "-c", "/entrypoint.sh >>/var/log/stdout.log 2>>/var/log/stderr.log"]
 
-CMD ["/init"]
+#CMD ["/init"]
