@@ -1,4 +1,4 @@
-FROM dockerpratik/python-base:v2
+FROM matrixds/pythonbase:v2
 
 RUN echo $PATH
 RUN /usr/bin/python --version
